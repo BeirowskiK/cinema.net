@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Cinema.Models.Showing>
+
+@{
+    ViewData["Title"] = "TodayScreenings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Today's Screenings</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr style="@(item.Time < DateTime.Now ? " background-color: #EEA782;" : "background-color:#C9EE82;")">
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Movie.Title)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

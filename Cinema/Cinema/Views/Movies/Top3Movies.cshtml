@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Cinema.Models.Movie>
+
+@{
+    ViewData["Title"] = "Top3Movies";
+}
+
+<h1>Top3Movies</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duration)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
